@@ -1,10 +1,12 @@
+import TodoItem from "./TodoItem"
+
 export default function TodoList(){
 
     const arrTask = ["clean","cook","homework"]
 
     return (
         <>
-        { arrTask.map ((item)=> <h2>{item}</h2> )}
+        { arrTask.map ((item)=> <TodoItem key={item} title={item} /> )}
         </>
     )
 }
