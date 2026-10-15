@@ -1,5 +1,6 @@
 import { useState } from "react"
 import TodoItem from "./TodoItem"
+import './TodoList.css'
 
 export default function TodoList(){
 
