@@ -1,12 +1,27 @@
+import { useState } from "react"
 import TodoItem from "./TodoItem"
 
 export default function TodoList(){
 
-    const arrTask = ["clean","cook","homework"]
+    const [arrTask,setArrTask] = useState(["clean","cook","homework"])
+
+    function isExist(task) {
+        return arrTask.includes(task);
+    }
+
+    function addTask(newTask) {
+        if (isExist(newTask)) {
+            alert("המשימה הזו כבר קיימת!");
+            return;
+        }
+        setArrTask([...arrTask,newTask])
+               console.log(arrTask)
+    }  
 
     return (
         <>
-        { arrTask.map ((item)=> <TodoItem key={item} title={item} /> )}
+        <TodoItem add={addTask} />
+        { arrTask.map ((item,index)=> <li key={index}>{item}</li>)}
         </>
     )
 }
